@@ -64,13 +64,60 @@ Happy Django coding!
 49. [Querying the Database](#querying-the-database)
 50. [Creating and Updating Objects](#creating-and-updating-objects)
 51. [Deleting Objects](#deleting-objects)
-52. [Django REST Framework Basics](#django-rest-framework-basics)
-53. [Serializers in Django REST Framework](#serializers-in-django-rest-framework)
-54. [Authentication and Permissions in Django REST Framework](#authentication-and-permissions-in-django-rest-framework)
-55. [API Views and ViewSets](#api-views-and-viewsets)
-56. [File Uploads in Django REST Framework](#file-uploads-in-django-rest-framework)
-57. [Pagination in Django REST Framework](#pagination-in-django-rest-framework)
-58. [Versioning in Django REST Framework](#versioning-in-django-rest-framework)
-59. [Django Deployment Best Practices](#django-deployment-best-practices)
-60. [Troubleshooting Common Django Issues](#troubleshooting-common-django-issues)
+52. [Common Datetime Formats in Django](#common-datetime-formats-in-django)  <!-- Place the new section here -->
+53. [Django REST Framework Basics](#django-rest-framework-basics)
+54. [Serializers in Django REST Framework](#serializers-in-django-rest-framework)
+55. [Authentication and Permissions in Django REST Framework](#authentication-and-permissions-in-django-rest-framework)
+56. [API Views and ViewSets](#api-views-and-viewsets)
+57. [File Uploads in Django REST Framework](#file-uploads-in-django-rest-framework)
+58. [Pagination in Django REST Framework](#pagination-in-django-rest-framework)
+59. [Versioning in Django REST Framework](#versioning-in-django-rest-framework)
+60. [Django Deployment Best Practices](#django-deployment-best-practices)
+61. [Troubleshooting Common Django Issues](#troubleshooting-common-django-issues)
+
+
+### Common Datetime Formats in Django
+When working with datetime fields in a Django project, you have the flexibility to customize the display format of dates and times. Django provides various format codes that you can use to represent datetime values according to your preferences. Below is a list of common datetime formats that you can use in your Django project.
+
+Date Formats
+%Y - Year with century (e.g., 2023) <br>
+%y - Year without century (e.g., 23) <br>
+%m - Month as a zero-padded decimal number (01 to 12) <br>
+%b - Abbreviated month name (Jan, Feb, etc.) <br>
+%B - Full month name (January, February, etc.) <br>
+%d - Day of the month as a zero-padded decimal number (01 to 31) <br>
+
+Example: "2023-04-08" <br>
+``` python
+DATE_FORMAT = "%Y-%m-%d"
+```
+Time Formats
+`%H` - Hour (24-hour clock) as a zero-padded decimal number (00 to 23) <br>
+`%I` - Hour (12-hour clock) as a zero-padded decimal number (01 to 12) <br>
+`%M` - Minute as a zero-padded decimal number (00 to 59) <br>
+`%S` - Second as a zero-padded decimal number (00 to 59) <br>
+`%p` - AM or PM  <br>
+
+Example: "15:30:00" <br>
+
+``` python
+TIME_FORMAT = "%H:%M:%S"
+```
+
+Datetime Formats <br>
+`%Y-%m-%d %H:%M:%S` - Datetime with year, month, day, hour, minute, and second (e.g., 2023-04-08 15:30:00) <br>
+`%Y-%m-%d %I:%M:%S %p` - Datetime with year, month, day, 12-hour clock, minute, second, and AM/PM (e.g., 2023-04-08 03:30:00 PM) <br>
+
+Example: "2023-04-08 15:30:00" <br>
+
+``` python
+DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
+```
+Custom Formats
+You can also create custom datetime formats by combining the above format codes and any additional characters you need.
+
+Usage
+To apply a datetime format, update the respective format setting in your project's settings.py file. Remember to use these formats within Django's context, such as templates and serializers, to ensure consistent presentation of datetime values.
+
+Feel free to choose the formats that best suit your project's requirements and design.
 
